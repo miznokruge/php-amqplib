@@ -45,6 +45,17 @@ function process_message($msg)
     echo "\n--------\n";
     echo $msg->body;
     echo "\n--------\n";
+	
+	
+	$to      = 'mizo.kruge@gmail.com';
+$subject = 'the subject';
+$message = 'hello';
+$headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $msg->body, $headers);
+	
+	
 
     $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
 
